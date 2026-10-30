@@ -37,9 +37,9 @@ Para um tutorial com a voz do dono do sistema:
 1. Mande o roteiro em texto corrido. A pessoa grava lendo, no celular ou no computador, sem se preocupar com
    erros: pode errar e repetir a frase.
 2. O **motor de corte da reel** limpa a gravação (silêncios, "éé", retomadas, a última tomada certa de cada frase).
-   Siga `$S/../corte/CORTE.md`:
+   Siga `$R/corte/CORTE.md` (`R=~/.claude/skills/reel`):
    ```bash
-   B=$S/../corte/scripts
+   R=${REEL_SKILL:-~/.claude/skills/reel}; B=$R/corte/scripts
    python3 $B/1-tomadas.py "<gravação>" corte && cat corte/tomadas.txt
    # corte/keeps.json, 2-vicios.py, 3-corte.py, 4-conferir.py (nenhuma palavra comida, R5 da reel)
    ```

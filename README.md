@@ -21,9 +21,15 @@ corte para narrar com a própria voz. Detalhes em [`tutorial/SKILL.md`](tutorial
 
 ## Instalar
 ```bash
-git clone https://github.com/Felpborges/skill-reel.git ~/.claude/skills/reel
-ln -s ~/.claude/skills/reel/tutorial ~/.claude/skills/tutorial     # a skill tutorial (opcional)
+git clone https://github.com/Felipe-codec/skill-passaapasso-video.git ~/.claude/skills/reel
+ln -s ~/.claude/skills/reel/tutorial ~/.claude/skills/tutorial     # a skill tutorial
 ```
+No Windows (PowerShell, sem administrador), o link da tutorial é uma junção:
+```powershell
+New-Item -ItemType Junction -Path "$HOME\.claude\skills\tutorial" -Target "$HOME\.claude\skills\reel\tutorial"
+```
+A pasta precisa se chamar `reel`: a tutorial usa o motor de corte dela (`~/.claude/skills/reel/corte`).
+Já tem uma instalação antiga? Na pasta da skill: `git remote set-url origin https://github.com/Felipe-codec/skill-passaapasso-video.git && git pull origin main`.
 Depois, no Claude Code, é só mandar o vídeo e pedir "edita esse reel" (ou `/reel`). Para um tutorial, abra o
 projeto do sistema e peça "faz um tutorial de como cadastrar X" (ou `/tutorial`).
 

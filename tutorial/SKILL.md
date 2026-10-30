@@ -28,7 +28,9 @@ referencias/             1-inspecionar · 2-roteiro · 3-telas · 4-narracao · 
 motor/                   o motor 16:9 (copiado para cada projeto): kit/ · montar.mjs · preparar.sh · ferramentas/ · exemplo/
 assets/musica/           duas trilhas CC BY 4.0 (crédito obrigatório na descrição) — LICENCA.md
 ```
-`S=~/.claude/skills/tutorial` (link para `reel/tutorial`; ou `TUTORIAL_SKILL`). Variáveis (R10 da reel):
+`S=~/.claude/skills/tutorial` (link para `reel/tutorial`; ou `TUTORIAL_SKILL`) e `R=~/.claude/skills/reel` (a skill reel,
+onde fica o motor de corte; ou `REEL_SKILL`). Use `$R/corte`, nunca `$S/../corte`: no Windows, com a junção, o `..`
+não volta para a pasta da reel. Variáveis (R10 da reel):
 `TUTORIAL_TTS` (comando da voz), `WHISPER_MODEL`, `CHROME`.
 
 ## Fluxo (ordem fixa)
@@ -67,7 +69,7 @@ cd motor && python3 ferramentas/narrar.py ../roteiro.json --rascunho   # tempos 
 ```
 Com as cenas aprovadas, a voz de verdade: `python3 ferramentas/narrar.py ../roteiro.json` (Kokoro do HyperFrames,
 `pf_dora` por padrão) ou a **voz da pessoa**: ela grava lendo o roteiro, o motor de corte da reel limpa
-(`$S/../corte/`) e `narrar.py --gravacao … --palavras …` alinha. As cenas não mudam entre os modos.
+(`$R/corte/`, com `R=~/.claude/skills/reel`) e `narrar.py --gravacao … --palavras …` alinha. As cenas não mudam entre os modos.
 
 ### 5 · Cenas (`referencias/5-cenas.md`)
 `src/cenas.js`: uma chamada `K.*` por ação, sempre ancorada na fala (`K.seg`, `K.em`, `K.at`). Leia
