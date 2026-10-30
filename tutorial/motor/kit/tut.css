@@ -1,0 +1,113 @@
+/* TUTORIAL 16:9 — estilos do kit. Cores e fontes vêm de variáveis (assets/tema.css, gerado pelo montar.mjs a partir
+   de tema.json); sem tema, vale a pele nativa da skill reel (roxo). Não fixe cor nem fonte aqui fora das variáveis. */
+@font-face { font-family: "Anybody"; src: url("fonts/Anybody.ttf") format("truetype"); font-weight: 100 900; font-stretch: 50% 150%; }
+@font-face { font-family: "Plus Jakarta Sans"; src: url("fonts/PlusJakartaSans.ttf") format("truetype"); font-weight: 200 800; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono.ttf") format("truetype"); font-weight: 100 800; }
+
+#tut {
+  --k-bg: #1f123d; --k-bg2: #0e0b1e; --k-sup: #2d1f50; --k-txt: #ffffff; --k-acc: #8b5cf6; --k-apoio: #b9a3ff; --k-mudo: #a59cc4;
+  --k-fT: "Anybody", sans-serif; --k-fS: "Plus Jakarta Sans", sans-serif; --k-fM: "JetBrains Mono", monospace;
+  position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--k-bg2);
+  font-family: var(--k-fS); color: var(--k-txt);
+}
+#tut * { box-sizing: border-box; }
+
+/* ---------- fundo ---------- */
+#bg { position: absolute; inset: 0;
+  background: radial-gradient(1100px 700px at 18% 12%, color-mix(in srgb, var(--k-acc) 26%, transparent), transparent 70%),
+              radial-gradient(900px 700px at 88% 95%, color-mix(in srgb, var(--k-apoio) 16%, transparent), transparent 70%),
+              linear-gradient(160deg, var(--k-bg), var(--k-bg2)); }
+#bg .grade { position: absolute; inset: 0; opacity: .07;
+  background-image: linear-gradient(var(--k-txt) 1px, transparent 1px), linear-gradient(90deg, var(--k-txt) 1px, transparent 1px);
+  background-size: 64px 64px; mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%); }
+
+/* ---------- câmera e janela ---------- */
+#cam { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; }
+#janela { position: absolute; left: 200px; top: 40px; width: 1520px; height: 852px; border-radius: 14px; overflow: hidden;
+  background: #fff; transform-origin: 50% 50%;
+  box-shadow: 0 30px 80px rgba(0,0,0,.45), 0 0 0 1px color-mix(in srgb, var(--k-txt) 14%, transparent); }
+#barra { position: absolute; left: 0; top: 0; width: 100%; height: 44px; display: flex; align-items: center; gap: 14px; padding: 0 18px;
+  background: var(--k-sup); border-bottom: 1px solid color-mix(in srgb, var(--k-txt) 10%, transparent); }
+#barra .pontos { display: flex; gap: 8px; }
+#barra .pontos i { width: 12px; height: 12px; border-radius: 50%; background: color-mix(in srgb, var(--k-txt) 22%, transparent); }
+#rota { position: relative; width: 520px; height: 28px; border-radius: 8px; background: color-mix(in srgb, var(--k-bg2) 70%, transparent);
+  font: 500 14px/28px var(--k-fM); color: var(--k-mudo); }
+#rota .k-rota { position: absolute; inset: 0; padding: 0 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#passoBarra { position: relative; flex: 1; height: 44px; }
+.k-passo-txt { position: absolute; right: 0; top: 0; height: 44px; line-height: 44px; font: 700 16px/44px var(--k-fS); color: var(--k-txt); white-space: nowrap; }
+.k-passo-txt span { color: var(--k-apoio); font-weight: 600; margin-right: 10px; font-family: var(--k-fM); font-size: 14px; }
+#progresso { position: absolute; left: 0; top: 44px; width: 100%; height: 3px; background: transparent; z-index: 5; }
+#progresso i { display: block; height: 3px; width: 0; background: var(--k-acc); }
+#viewport { position: absolute; left: 0; top: 44px; width: 1520px; height: 808px; overflow: hidden; background: #fff; }
+#telas .tela { position: absolute; inset: 0; overflow: hidden; }
+#telas .tela > .escala { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+#telas .tela .rolagem { position: relative; }
+.k-oculto { opacity: 0; }
+[data-k-foco="1"] { outline: 3px solid var(--k-acc) !important; outline-offset: 2px; }
+
+/* ---------- marcas dentro da câmera ---------- */
+#marcas { position: absolute; inset: 0; pointer-events: none; }
+.k-clique { position: absolute; width: 44px; height: 44px; border-radius: 50%; border: 3px solid var(--k-acc);
+  background: color-mix(in srgb, var(--k-acc) 25%, transparent); opacity: 0; }
+.k-anel { position: absolute; border-radius: 12px; border: 3px solid var(--k-acc); opacity: 0;
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--k-acc) 22%, transparent), 0 0 30px color-mix(in srgb, var(--k-acc) 45%, transparent); }
+.k-foco { position: absolute; border-radius: 12px; opacity: 0; box-shadow: 0 0 0 4000px rgba(8, 6, 20, .58); outline: 2px solid var(--k-acc); }
+.k-nota { position: absolute; max-width: 360px; padding: 14px 18px; border-radius: 12px; opacity: 0;
+  background: var(--k-bg2); color: var(--k-txt); font: 600 19px/1.35 var(--k-fS);
+  box-shadow: 0 14px 40px rgba(0,0,0,.35); border: 1px solid color-mix(in srgb, var(--k-acc) 55%, transparent); }
+.k-nota b { display: block; color: var(--k-apoio); font-size: 14px; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 4px; }
+.k-nota b:empty { display: none; }
+.k-lista { position: absolute; opacity: 0; background: #fff; color: #1b2430; overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0,0,0,.22), 0 0 0 1px rgba(0,0,0,.08); }
+.k-lista div { padding: 0 14px; white-space: nowrap; }
+.k-lista div[data-k-estado="sobre"] { background: color-mix(in srgb, var(--k-acc) 16%, #fff); font-weight: 700; }
+#cursor { position: absolute; left: 0; top: 0; width: 34px; height: 34px; margin: -3px 0 0 -6px; transform-origin: 6px 3px;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,.35)); z-index: 20; }
+
+/* ---------- interface sobre a janela (fora da câmera) ---------- */
+#ui { position: absolute; inset: 0; pointer-events: none; }
+.k-veu { position: absolute; left: 200px; top: 40px; width: 1520px; height: 852px; border-radius: 14px; opacity: 0;
+  background: color-mix(in srgb, var(--k-bg2) 62%, transparent); }
+.k-cartela { position: absolute; left: 290px; top: 360px; padding: 26px 36px 28px; border-radius: 18px; opacity: 0;
+  background: var(--k-bg2); box-shadow: 0 24px 70px rgba(0,0,0,.45);
+  border-left: 6px solid var(--k-acc); max-width: 1100px; }
+.k-cartela span { display: block; font: 600 16px/1 var(--k-fM); letter-spacing: .14em; color: var(--k-apoio); margin-bottom: 10px; }
+.k-cartela b { display: block; font: 800 58px/1.08 var(--k-fT); font-stretch: 112%; color: var(--k-txt); }
+.k-cartela i { display: block; font: 500 22px/1.3 var(--k-fS); font-style: normal; color: var(--k-mudo); margin-top: 8px; }
+.k-aviso { position: absolute; left: 0; right: 0; margin: 0 auto; width: fit-content; top: 104px; display: flex; align-items: center; gap: 12px;
+  padding: 14px 24px; border-radius: 999px; opacity: 0; white-space: nowrap;
+  background: var(--k-bg2); color: var(--k-txt); font: 700 22px/1 var(--k-fS); box-shadow: 0 14px 40px rgba(0,0,0,.4);
+  border: 1px solid color-mix(in srgb, var(--k-apoio) 50%, transparent); }
+.k-aviso svg, .k-sucesso svg { width: 26px; height: 26px; fill: none; stroke: var(--k-apoio); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.k-aviso.k-atencao { border-color: #f5b84a; } .k-aviso.k-atencao svg { stroke: #f5b84a; }
+.k-sucesso { position: absolute; right: 240px; top: 112px; display: flex; align-items: center; gap: 12px; padding: 16px 24px; border-radius: 14px; opacity: 0;
+  background: #0f2e22; color: #eafff4; font: 700 22px/1 var(--k-fS); border: 1px solid #2fbf7a; box-shadow: 0 14px 40px rgba(0,0,0,.4); }
+.k-sucesso svg { stroke: #46e39a; }
+
+/* ---------- cartelas de tela cheia ---------- */
+#cards { position: absolute; inset: 0; pointer-events: none; }
+.k-cheia { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 0 180px; opacity: 0; }
+.k-marca { display: flex; align-items: center; gap: 14px; font: 700 26px/1 var(--k-fS); color: var(--k-apoio); margin-bottom: 30px; }
+.k-marca img { height: 44px; }
+.k-abertura h1 { margin: 0; font: 900 92px/1.02 var(--k-fT); font-stretch: 115%; max-width: 1400px; color: var(--k-txt); }
+.k-abertura p { margin: 22px 0 0; font: 500 30px/1.35 var(--k-fS); color: var(--k-mudo); max-width: 1200px; }
+.k-abertura ol { list-style: none; margin: 46px 0 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.k-abertura li { display: flex; align-items: center; gap: 18px; font: 600 28px/1.2 var(--k-fS); color: var(--k-txt); }
+.k-abertura li span { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font: 700 20px/1 var(--k-fM);
+  background: color-mix(in srgb, var(--k-acc) 30%, transparent); border: 1px solid var(--k-acc); color: var(--k-txt); }
+.k-capitulo { align-items: flex-start; }
+.k-capitulo span { font: 600 22px/1 var(--k-fM); letter-spacing: .18em; color: var(--k-apoio); }
+.k-capitulo h2 { margin: 18px 0 0; font: 900 104px/1 var(--k-fT); font-stretch: 115%; }
+.k-encerramento h2 { margin: 0 0 40px; font: 900 96px/1 var(--k-fT); font-stretch: 115%; }
+.k-encerramento ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+.k-encerramento li { display: flex; align-items: center; gap: 18px; font: 600 32px/1.2 var(--k-fS); }
+.k-encerramento li i { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--k-acc); }
+.k-encerramento li svg { width: 26px; height: 26px; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.k-encerramento p { margin: 44px 0 0; font: 500 28px/1.35 var(--k-fS); color: var(--k-mudo); }
+
+/* ---------- legenda (embaixo da janela, área própria) ---------- */
+#cap { position: absolute; left: 0; right: 0; top: 916px; height: 140px; pointer-events: none; }
+.k-leg { position: absolute; left: 50%; top: 14px; transform: translateX(-50%); max-width: 1500px; text-align: center; opacity: 0;
+  padding: 10px 26px 12px; border-radius: 14px; background: rgba(8, 6, 20, .86);
+  font: 700 40px/1.25 var(--k-fS); color: #fff; white-space: nowrap; }
+.k-leg .k-rotulo { color: var(--k-apoio); }

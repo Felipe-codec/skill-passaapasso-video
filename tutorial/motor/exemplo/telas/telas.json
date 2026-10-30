@@ -1,0 +1,42 @@
+[
+  {
+    "id": "painel",
+    "arquivo": "painel.html",
+    "rota": "lumen.app/painel",
+    "largura": 1440,
+    "css": [
+      "sistema.css"
+    ],
+    "capturada": true
+  },
+  {
+    "id": "produtos",
+    "arquivo": "produtos.html",
+    "rota": "lumen.app/produtos",
+    "largura": 1440,
+    "css": [
+      "sistema.css"
+    ],
+    "capturada": true
+  },
+  {
+    "id": "novo",
+    "arquivo": "novo.html",
+    "rota": "lumen.app/produtos/novo",
+    "largura": 1440,
+    "css": [
+      "sistema.css"
+    ],
+    "capturada": true
+  },
+  {
+    "id": "salvo",
+    "arquivo": "salvo.html",
+    "rota": "lumen.app/produtos",
+    "largura": 1440,
+    "css": [
+      "sistema.css"
+    ],
+    "capturada": true
+  }
+]

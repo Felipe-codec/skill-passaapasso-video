@@ -13,11 +13,19 @@ painel e sem escolhas: manda o vídeo, ela corta e edita.
 
 Entrega `render/reel-v1.mp4` verificado (`VERIFY.md`, folha de quadros, zona segura, LUFS) e itera a pedido.
 
+O repositório traz também a skill **tutorial** (`tutorial/`): vídeo **passo a passo** (16:9, 2 a 5 min) de como usar
+um sistema que você construiu, feito a partir do **código** do sistema, sem gravar a tela. É a fusão desta skill com o
+[/brag](https://github.com/latent-spaces/brag) (MIT). Do /brag vêm ler o projeto, achar o fluxo de uso e mostrar a
+interface real. Da reel vêm o motor HyperFrames ancorado na fala, o áudio a −14 LUFS, a verificação e o motor de
+corte para narrar com a própria voz. Detalhes em [`tutorial/SKILL.md`](tutorial/SKILL.md).
+
 ## Instalar
 ```bash
 git clone https://github.com/Felpborges/skill-reel.git ~/.claude/skills/reel
+ln -s ~/.claude/skills/reel/tutorial ~/.claude/skills/tutorial     # a skill tutorial (opcional)
 ```
-Depois, no Claude Code, é só mandar o vídeo e pedir "edita esse reel" (ou `/reel`).
+Depois, no Claude Code, é só mandar o vídeo e pedir "edita esse reel" (ou `/reel`). Para um tutorial, abra o
+projeto do sistema e peça "faz um tutorial de como cadastrar X" (ou `/tutorial`).
 
 ## O que a máquina precisa
 | Para | Ferramenta |
@@ -46,9 +54,15 @@ corte/                motor de corte: CORTE.md · references/EDICAO-BRUTA.md · 
 modelo/               motor VSL: kit/ · montar.mjs · preparar.sh · ferramentas/ · exemplo/ (o reel aprovado inteiro)
 ferramentas/          preparar.py · rosto.py · ancoras.py · verificar.py · zona-segura.py · recortar.py · audio-final.sh
 anexos/               quadros da referência e o antes × depois da cor
+tutorial/             skill tutorial: SKILL.md · regras.md · referencias/ · motor/ (kit 16:9, ferramentas, exemplo) · assets/musica/
 ```
 
 ## Licenças do material embutido
+- **Skill tutorial:** a estrutura de inspeção, o plano e as regras de "mostrar a coisa de verdade" vêm do /brag
+  (MIT, © 2026 Shunit Haviv Hakimi, `tutorial/LICENCA-BRAG.txt`). As trilhas de `tutorial/assets/musica/` são de
+  Sascha Ende (ende.app, **CC BY 4.0**, crédito obrigatório na descrição do vídeo). Os efeitos `clique`, `passar`,
+  `selecao`, `transicao`, `destaque`, `sucesso`, `soltar` e `carta` são da [Kenney](https://kenney.nl/) (CC0), via /brag.
+
 Fontes Anybody, Plus Jakarta Sans e JetBrains Mono sob OFL (arquivos `OFL-*.txt` em `modelo/kit/fonts/`); os efeitos
 sonoros de `modelo/kit/sfx/` são procedurais (gerados por `modelo/ferramentas/gerar-sfx.mjs`); GSAP e HyperFrames vêm
 pelo `npm`. Os logos do exemplo vêm do Wikimedia Commons e estão listados em `modelo/exemplo/SOURCES.md`.

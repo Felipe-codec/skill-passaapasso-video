@@ -1,0 +1,41 @@
+{
+  "produto": "Lumen Estoque",
+  "titulo": "Como cadastrar um produto no Lumen Estoque",
+  "voz": "pf_dora",
+  "publico": "equipe de loja que vai usar o sistema pela primeira vez",
+  "aberturaTitulo": "Introdução",
+  "encerramentoTitulo": "Resumo",
+  "passos": [
+    { "n": 1, "titulo": "Abrir a lista de produtos", "sub": "Menu lateral › Produtos" },
+    { "n": 2, "titulo": "Começar um produto novo", "sub": "Botão Novo produto" },
+    { "n": 3, "titulo": "Preencher os dados", "sub": "Nome, categoria, preço e estoque" },
+    { "n": 4, "titulo": "Salvar e conferir", "sub": "O produto aparece no topo da lista" }
+  ],
+  "segmentos": [
+    { "id": "abertura-1", "passo": 0, "texto": "Neste vídeo você vai aprender a cadastrar um produto novo no Lumen Estoque, do começo ao fim." },
+    { "id": "abertura-2", "passo": 0, "texto": "São quatro passos: abrir a lista de produtos, começar um produto novo, preencher os dados e salvar." },
+    { "id": "abertura-3", "passo": 0, "texto": "Leva menos de um minuto, e você só precisa do nome, do preço e da quantidade que chegou." },
+
+    { "id": "p1-a", "passo": 1, "texto": "Quando você entra no sistema, a primeira tela é o «Painel», com o resumo do estoque do dia." },
+    { "id": "p1-b", "passo": 1, "texto": "Aqui em cima você vê quantos produtos estão ativos e quantos estão com estoque baixo." },
+    { "id": "p1-c", "passo": 1, "texto": "Para cadastrar, vá ao menu lateral, à esquerda, e clique em «Produtos»." },
+
+    { "id": "p2-a", "passo": 2, "texto": "Esta é a lista com todos os produtos da loja: nome, categoria, preço, estoque e situação." },
+    { "id": "p2-b", "passo": 2, "texto": "Repare na etiqueta vermelha: ela avisa quando um produto está acabando." },
+    { "id": "p2-c", "passo": 2, "texto": "Para começar um cadastro, clique no botão «Novo produto», no canto superior direito." },
+
+    { "id": "p3-a", "passo": 3, "texto": "Abre o formulário do produto. Comece pelo «Nome do produto»: escreva do jeito que o cliente procura." },
+    { "id": "p3-b", "passo": 3, "texto": "Neste exemplo, Garrafa térmica Aurora." },
+    { "id": "p3-c", "passo": 3, "texto": "Em «Categoria», abra a lista e escolha «Cozinha»." },
+    { "id": "p3-d", "passo": 3, "texto": "No «Preço de venda», digite só os números, com vírgula nos centavos: oitenta e nove e noventa." },
+    { "id": "p3-e", "passo": 3, "texto": "Em «Estoque inicial», coloque a quantidade que chegou, trinta unidades." },
+    { "id": "p3-f", "passo": 3, "texto": "O campo do código você pode deixar em branco: o sistema gera o código sozinho." },
+
+    { "id": "p4-a", "passo": 4, "texto": "Confira os dados e clique em «Salvar produto»." },
+    { "id": "p4-b", "passo": 4, "texto": "Pronto. O aviso «Produto cadastrado» confirma que deu certo." },
+    { "id": "p4-c", "passo": 4, "texto": "E o produto novo já aparece no topo da lista, destacado, com a situação em estoque." },
+
+    { "id": "fim-1", "passo": 0, "texto": "Recapitulando: abra «Produtos», clique em «Novo produto», preencha os dados e salve." },
+    { "id": "fim-2", "passo": 0, "texto": "Na próxima vez, o cadastro leva só alguns segundos." }
+  ]
+}

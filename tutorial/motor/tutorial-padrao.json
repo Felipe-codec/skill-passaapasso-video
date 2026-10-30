@@ -1,0 +1,14 @@
+{
+  "_": "Configuração do tutorial. Chaves que começam com _ são comentários.",
+  "titulo": "Como fazer X no Sistema",
+  "produto": "",
+  "telaLargura": 1440,
+  "_telaLargura": "largura (px) em que as telas do sistema são desenhadas; a janela do vídeo tem 1520 px e escala para caber",
+  "zoom": 1.65,
+  "_zoom": "zoom padrão do K.foco (1,4 a 2,0; acima de 2 o texto da interface começa a borrar)",
+  "sfx": true,
+  "sfxVol": 0.5,
+  "legenda": true,
+  "cauda": 1.5,
+  "_cauda": "segundos de imagem depois do fim da narração (o encerramento respira)"
+}

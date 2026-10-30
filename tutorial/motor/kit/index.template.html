@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>__TITULO__</title>
+<script src="assets/gsap.min.js"></script>
+<script src="assets/tut.js"></script>
+<link rel="stylesheet" href="assets/tut.css">
+__CSS__
+</head><body style="margin:0;background:#000">
+<!-- Gerado por montar.mjs a partir de src/index.template.html + telas/ + src/cenas.js. Não edite index.html à mão. -->
+<div id="tut" data-composition-id="tutorial" data-start="0" data-duration="__DUR__" data-width="1920" data-height="1080">
+  <div id="bg"><div class="grade"></div></div>
+  <div id="cam">
+    <div id="janela">
+      <div id="barra"><div class="pontos"><i></i><i></i><i></i></div><div id="rota"></div><div id="passoBarra"></div></div>
+      <div id="progresso"><i></i></div>
+      <div id="viewport"><div id="telas">
+__TELAS__
+      </div></div>
+    </div>
+    <div id="marcas"></div>
+    <div id="cursor"><svg viewBox="0 0 32 32" width="34" height="34"><path d="M6 3 L6 25 L11.5 20 L15.5 29 L19.5 27.2 L15.6 18.6 L23 18.6 Z" fill="#fff" stroke="#111" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+  </div>
+  <div id="ui"></div>
+  <div id="cards"></div>
+  <div id="cap"></div>
+  <audio id="voz" src="assets/narracao.wav" data-start="__VOZ_INICIO__" data-duration="__VOZ_DUR__" data-track-index="1" data-volume="1"></audio>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+const CFG = __CFG__;
+const WORDS = __WORDS__;
+const SEGS = __SEGS__;
+const K = TUT.init({ tl, cfg: CFG, words: WORDS, segs: SEGS });
+
+// ======================= CENAS (src/cenas.js) =======================
+__CENAS__
+// ====================================================================
+
+tl.set({}, {}, __DUR__);   // timeline do tamanho exato do vídeo
+window.__timelines = window.__timelines || {};
+window.__timelines["tutorial"] = tl;
+</script>
+</body></html>

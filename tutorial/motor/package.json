@@ -1,0 +1,12 @@
+{
+  "name": "tutorial-169",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Tutorial 16:9 de sistema: telas recriadas do código, cursor, zoom, passos e narração (motor da skill tutorial).",
+  "devDependencies": {
+    "hyperframes": "0.7.109",
+    "playwright": "^1.59.1",
+    "gsap": "3.14.2"
+  }
+}

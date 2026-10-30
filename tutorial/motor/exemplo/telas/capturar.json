@@ -1,0 +1,7 @@
+{ "base": "http://localhost:8765", "largura": 1440,
+  "telas": [
+    { "id": "painel", "rota": "/index.html", "rotaExibida": "lumen.app/painel", "esperar": ".cards" },
+    { "id": "produtos", "rota": "/produtos.html", "rotaExibida": "lumen.app/produtos", "esperar": "#tabela" },
+    { "id": "novo", "rota": "/produto-novo.html", "rotaExibida": "lumen.app/produtos/novo", "esperar": "form" },
+    { "id": "salvo", "rota": "/produtos.html?nome=Garrafa%20térmica%20Aurora&categoria=Cozinha&preco=89,90&qtd=30", "rotaExibida": "lumen.app/produtos", "esperar": ".toast" }
+  ] }
